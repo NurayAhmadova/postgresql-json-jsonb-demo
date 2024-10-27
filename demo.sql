@@ -83,3 +83,6 @@ SELECT (jsonb_each_text(doc -> 'colors')).* FROM demo2;
 
 -- If you need to just extract the keys in the document or subtree, jsonb_object_keys is used:
 SELECT jsonb_object_keys(doc) FROM demo2;
+
+-- @ operator is used for filtering
+SELECT doc from demo2 where doc @> '{"product": "pigments"}'::jsonb
